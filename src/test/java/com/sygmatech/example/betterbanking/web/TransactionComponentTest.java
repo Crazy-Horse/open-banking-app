@@ -1,20 +1,27 @@
 package com.sygmatech.example.betterbanking.web;
 
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.is;
-
-import org.hamcrest.Matchers.*;
+import com.sygmatech.example.betterbanking.service.TransactionService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 
 import javax.annotation.PostConstruct;
 
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static io.restassured.module.mockmvc.RestAssuredMockMvc.when;
+import static org.hamcrest.Matchers.is;
+
 @SpringBootTest
 public class TransactionComponentTest {
 
     private String uri;
+    private TransactionService service;
+
+    @BeforeEach
+    void initialize() {
+        service = new TransactionService(uri);
+    }
 
     @PostConstruct
     public void init() {
@@ -28,7 +35,9 @@ public class TransactionComponentTest {
 
     @Test
     public void whenJsonResponseHasAllValuesAssociatedWithAccount_thenCorrect() {
-        get("/transactions/123456").then()
+        given().standaloneSetup(new TransactionController(service))
+                .when()
+                .get("/transactions/123456").then()
                 .statusCode(HttpStatus.OK.value())
                 .assertThat()
                 .body("size()", is(3));

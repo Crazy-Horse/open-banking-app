@@ -9,6 +9,13 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '15'
 targetCompatibility = '15'
 
+tasks.withType(JavaCompile) {
+    options.compilerArgs += '--enable-preview'
+}
+tasks.withType(Test) {
+    jvmArgs += "--enable-preview"
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -23,16 +30,29 @@ ext['rest-assured.version'] = '4.3.3'
 ext["groovy.version"] = "3.0.3"
 
 dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 //    implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'io.github.resilience4j:resilience4j-spring-boot2:1.5.0'
+    implementation 'io.github.resilience4j:resilience4j-circuitbreaker:1.5.0'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.flywaydb:flyway-core'
+    implementation 'io.springfox:springfox-oas:3.0.0'
+    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+    implementation 'com.github.joschi.jackson:jackson-datatype-threetenbp:2.6.4'
+    implementation 'javax.validation:validation-api'
+    implementation 'org.springframework.plugin:spring-plugin-core:2.0.0.RELEASE'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'io.rest-assured:rest-assured:4.3.3'
+    testImplementation 'io.rest-assured:spring-mock-mvc:4.3.3'
+    testImplementation 'com.squareup.okhttp3:okhttp:4.0.1'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.0.1'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test:3.2.10.RELEASE'
 }
 
 test {

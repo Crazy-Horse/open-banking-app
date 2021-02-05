@@ -1,81 +1,37 @@
 package com.sygmatech.example.betterbanking.domain;
 
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-//@Entity
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force=true)
+@RequiredArgsConstructor
+@Data
 public class Transaction {
-    //@Id
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
-    private String type;
-    private String accountNumber;
-    private String currency;
-    private Double amount;
-    private String merchantName;
-    private String merchantLogo;
+    @NotNull
+    private final String type;
+    @NotNull
+    private final String accountNumber;
+    @NotNull
+    private final String currency;
+    @NotNull
+    private final Double amount;
+    @NotNull
+    private final String merchantName;
+    private final String merchantLogo;
 
-    public Transaction() {}
-    public Transaction(Long id, String type, String accountNumber, String currency, Double amount, String merchantName, String merchantLogo) {
-        this.id = id;
-        this.type = type;
-        this.accountNumber = accountNumber;
-        this.currency = currency;
-        this.amount = amount;
-        this.merchantName = merchantName;
-        this.merchantLogo = merchantLogo;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
-    }
-
-    public String getMerchantName() {
-        return merchantName;
-    }
-
-    public void setMerchantName(String merchantName) {
-        this.merchantName = merchantName;
-    }
-
-    public String getMerchantLogo() {
-        return merchantLogo;
-    }
-
-    public void setMerchantLogo(String merchantLogo) {
-        this.merchantLogo = merchantLogo;
-    }
 }
 
 
