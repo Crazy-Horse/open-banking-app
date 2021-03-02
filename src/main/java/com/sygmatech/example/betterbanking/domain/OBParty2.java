@@ -1,17 +1,16 @@
 package com.sygmatech.example.betterbanking.domain;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.sygmatech.example.betterbanking.domain.OBExternalPartyType1Code;
-import com.sygmatech.example.betterbanking.domain.OBParty2Address;
-import com.sygmatech.example.betterbanking.domain.OBPartyRelationships1;
 import io.swagger.v3.oas.annotations.media.Schema;
+import org.springframework.validation.annotation.Validated;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import java.util.Objects;
 
 /**
  * OBParty2
@@ -245,7 +244,7 @@ public class OBParty2   {
    **/
   @Schema(description = "")
   
-  @Pattern(regexp="\+[0-9]{1,3}-[0-9()+\-]{1,30}")   public String getPhone() {
+  @Pattern(regexp="\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")   public String getPhone() {
     return phone;
   }
 
@@ -264,7 +263,7 @@ public class OBParty2   {
    **/
   @Schema(description = "")
   
-  @Pattern(regexp="\+[0-9]{1,3}-[0-9()+\-]{1,30}")   public String getMobile() {
+  @Pattern(regexp="\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")   public String getMobile() {
     return mobile;
   }
 

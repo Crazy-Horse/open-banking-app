@@ -111,7 +111,7 @@ public class Overdraft1OverdraftTierBand   {
   @Schema(required = true, description = "Minimum value of Overdraft Tier/Band")
       @NotNull
 
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getTierValueMin() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getTierValueMin() {
     return tierValueMin;
   }
 
@@ -130,7 +130,7 @@ public class Overdraft1OverdraftTierBand   {
    **/
   @Schema(description = "Maximum value of Overdraft Tier/Band")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getTierValueMax() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getTierValueMax() {
     return tierValueMax;
   }
 
@@ -187,7 +187,7 @@ public class Overdraft1OverdraftTierBand   {
    **/
   @Schema(description = "EAR means Effective Annual Rate and/or Equivalent Annual Rate (frequently used interchangeably), being the actual annual interest rate of an Overdraft.")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getEAR() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getEAR() {
     return EAR;
   }
 
@@ -206,7 +206,7 @@ public class Overdraft1OverdraftTierBand   {
    **/
   @Schema(description = "An annual percentage rate (APR) is the annual rate charged for borrowing or earned through an investment. APR is expressed as a percentage that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction but does not take compounding into account.")
   
-  @Pattern(regexp="^(-?\\\\d{1,3}){1}(\\\\.\\\\d{1,4}){0,1}$")   public String getRepresentativeAPR() {
+  @Pattern(regexp="^(-?\\{1,3}){1}(\\\\.\\{1,4}){0,1}$")   public String getRepresentativeAPR() {
     return representativeAPR;
   }
 

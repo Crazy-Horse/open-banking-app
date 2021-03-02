@@ -273,7 +273,7 @@ public class CreditInterestTierBand   {
   @Schema(required = true, description = "Minimum deposit value for which the credit interest tier applies.")
       @NotNull
 
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getTierValueMinimum() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getTierValueMinimum() {
     return tierValueMinimum;
   }
 
@@ -292,7 +292,7 @@ public class CreditInterestTierBand   {
    **/
   @Schema(description = "Maximum deposit value for which the credit interest tier applies.")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getTierValueMaximum() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getTierValueMaximum() {
     return tierValueMaximum;
   }
 
@@ -390,7 +390,7 @@ public class CreditInterestTierBand   {
   @Schema(required = true, description = "The annual equivalent rate (AER) is interest that is calculated under the assumption that any interest paid is combined with the original balance and the next interest payment will be based on the slightly higher account balance. Overall, this means that interest can be compounded several times in a year depending on the number of times that interest payments are made.   Read more: Annual Equivalent Rate (AER) http://www.investopedia.com/terms/a/aer.asp#ixzz4gfR7IO1A")
       @NotNull
 
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getAER() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getAER() {
     return AER;
   }
 
@@ -428,7 +428,7 @@ public class CreditInterestTierBand   {
    **/
   @Schema(description = "Bank Interest for the BCA product")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getBankInterestRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getBankInterestRate() {
     return bankInterestRate;
   }
 

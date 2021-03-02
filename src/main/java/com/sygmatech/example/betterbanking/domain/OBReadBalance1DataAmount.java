@@ -35,7 +35,7 @@ public class OBReadBalance1DataAmount   {
   @Schema(required = true, description = "")
       @NotNull
 
-  @Pattern(regexp="^\d{1,13}$|^\d{1,13}\.\d{1,5}$")   public String getAmount() {
+  @Pattern(regexp="^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")   public String getAmount() {
     return amount;
   }
 

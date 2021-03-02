@@ -236,7 +236,7 @@ public class OBReadProduct2DataOtherProductTypeProductDetails   {
    **/
   @Schema(description = "The maximum relevant charges that could accrue as defined fully in Part 7 of the CMA order")
   
-  @Pattern(regexp="^(-?\\\\d{1,14}){1}(\\\\.\\\\d{1,4}){0,1}$")   public String getMonthlyMaximumCharge() {
+  @Pattern(regexp="^(-?\\{1,14}){1}(\\\\.\\{1,4}){0,1}$")   public String getMonthlyMaximumCharge() {
     return monthlyMaximumCharge;
   }
 

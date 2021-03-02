@@ -220,7 +220,7 @@ public class OBReadOffer1DataOffer   {
    **/
   @Schema(description = "Rate associated with the offer type.")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getRate() {
     return rate;
   }
 

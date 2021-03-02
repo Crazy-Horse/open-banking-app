@@ -30,7 +30,7 @@ public class Transaction {
     private final Double amount;
     @NotNull
     private final String merchantName;
-    private final String merchantLogo;
+    private String merchantLogo;
 
 }
 

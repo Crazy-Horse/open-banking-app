@@ -1,4 +1,4 @@
-package com.sygmatech.example.betterbanking.web;
+package com.sygmatech.example.betterbanking.dao;
 
 import com.sygmatech.example.betterbanking.domain.Transaction;
 

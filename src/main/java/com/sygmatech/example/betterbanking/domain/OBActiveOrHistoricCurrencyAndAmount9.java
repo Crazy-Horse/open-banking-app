@@ -35,7 +35,7 @@ public class OBActiveOrHistoricCurrencyAndAmount9   {
   @Schema(required = true, description = "")
       @NotNull
 
-  @Pattern(regexp="^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")   public String getAmount() {
+  @Pattern(regexp="^{1,13}$|^{1,13}\\.{1,5}$")   public String getAmount() {
     return amount;
   }
 

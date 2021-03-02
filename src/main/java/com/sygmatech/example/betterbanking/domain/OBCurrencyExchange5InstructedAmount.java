@@ -35,7 +35,7 @@ public class OBCurrencyExchange5InstructedAmount   {
   @Schema(required = true, description = "")
       @NotNull
 
-  @Pattern(regexp="^\d{1,13}$|^\d{1,13}\.\d{1,5}$")   public String getAmount() {
+  @Pattern(regexp="^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$")   public String getAmount() {
     return amount;
   }
 

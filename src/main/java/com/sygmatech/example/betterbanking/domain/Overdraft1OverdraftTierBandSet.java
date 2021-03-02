@@ -201,7 +201,7 @@ public class Overdraft1OverdraftTierBandSet   {
    **/
   @Schema(description = "When a customer exceeds their credit limit, a financial institution will not charge the customer unauthorised overdraft charges if they do not exceed by more than the buffer amount. Note: Authorised overdraft charges may still apply.")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getBufferAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getBufferAmount() {
     return bufferAmount;
   }
 

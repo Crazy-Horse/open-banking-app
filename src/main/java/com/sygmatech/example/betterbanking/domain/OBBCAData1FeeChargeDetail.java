@@ -381,7 +381,7 @@ public class OBBCAData1FeeChargeDetail   {
    **/
   @Schema(description = "Fee Amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getFeeAmount() {
     return feeAmount;
   }
 
@@ -400,7 +400,7 @@ public class OBBCAData1FeeChargeDetail   {
    **/
   @Schema(description = "Rate charged for Fee/Charge (where it is charged in terms of a rate rather than an amount)")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getFeeRate() {
     return feeRate;
   }
 

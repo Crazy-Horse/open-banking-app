@@ -1,7 +1,8 @@
 package com.sygmatech.example.betterbanking.dao;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
 
-public interface MerchantDetailsRepository extends CrudRepository<String, String> {
+public interface MerchantDetailsRepository {
 
+    Optional<String> findMerchantLogo(final String merchantName);
 }

@@ -1,12 +1,12 @@
 package com.sygmatech.example.betterbanking.domain;
 
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.validation.annotation.Validated;
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.util.Objects;
 
 /**
  * Set of elements used to provide details of a generic rate related to the statement resource.
@@ -35,7 +35,7 @@ public class OBStatement2StatementRate   {
   @Schema(required = true, description = "")
       @NotNull
 
-  @Pattern(regexp="^(-?\d{1,3}){1}(\.\d{1,4}){0,1}$")   public String getRate() {
+  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getRate() {
     return rate;
   }
 

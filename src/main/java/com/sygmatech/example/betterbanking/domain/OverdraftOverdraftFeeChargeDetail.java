@@ -353,7 +353,7 @@ public class OverdraftOverdraftFeeChargeDetail   {
    **/
   @Schema(description = "Every additional tranche of an overdraft balance to which an overdraft fee is applied")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getIncrementalBorrowingAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getIncrementalBorrowingAmount() {
     return incrementalBorrowingAmount;
   }
 
@@ -372,7 +372,7 @@ public class OverdraftOverdraftFeeChargeDetail   {
    **/
   @Schema(description = "Amount charged for an overdraft fee/charge (where it is charged in terms of an amount rather than a rate)")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getFeeAmount() {
     return feeAmount;
   }
 
@@ -391,7 +391,7 @@ public class OverdraftOverdraftFeeChargeDetail   {
    **/
   @Schema(description = "Rate charged for overdraft fee/charge (where it is charged in terms of a rate rather than an amount)")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getFeeRate() {
     return feeRate;
   }
 

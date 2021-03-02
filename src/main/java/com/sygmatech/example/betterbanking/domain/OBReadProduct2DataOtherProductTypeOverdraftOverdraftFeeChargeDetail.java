@@ -145,7 +145,7 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftFeeChargeDetail
    **/
   @Schema(description = "")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getIncrementalBorrowingAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getIncrementalBorrowingAmount() {
     return incrementalBorrowingAmount;
   }
 
@@ -164,7 +164,7 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftFeeChargeDetail
    **/
   @Schema(description = "")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getFeeAmount() {
     return feeAmount;
   }
 
@@ -183,7 +183,7 @@ public class OBReadProduct2DataOtherProductTypeOverdraftOverdraftFeeChargeDetail
    **/
   @Schema(description = "")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getFeeRate() {
     return feeRate;
   }
 

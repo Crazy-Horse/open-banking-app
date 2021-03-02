@@ -39,7 +39,7 @@ public class FeeApplicableRange   {
    **/
   @Schema(description = "Minimum Amount on which fee/charge is applicable (where it is expressed as an amount)")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getMinimumAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getMinimumAmount() {
     return minimumAmount;
   }
 
@@ -58,7 +58,7 @@ public class FeeApplicableRange   {
    **/
   @Schema(description = "Maximum Amount on which fee is applicable (where it is expressed as an amount)")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getMaximumAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getMaximumAmount() {
     return maximumAmount;
   }
 
@@ -77,7 +77,7 @@ public class FeeApplicableRange   {
    **/
   @Schema(description = "Minimum rate on which fee/charge is applicable(where it is expressed as an rate)")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getMinimumRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getMinimumRate() {
     return minimumRate;
   }
 
@@ -96,7 +96,7 @@ public class FeeApplicableRange   {
    **/
   @Schema(description = "Maximum rate on which fee/charge is applicable(where it is expressed as an rate)")
   
-  @Pattern(regexp="^(-?\\d{1,3}){1}(\\.\\d{1,4}){0,1}$")   public String getMaximumRate() {
+  @Pattern(regexp="^(-?{1,3}){1}(\\.{1,4}){0,1}$")   public String getMaximumRate() {
     return maximumRate;
   }
 

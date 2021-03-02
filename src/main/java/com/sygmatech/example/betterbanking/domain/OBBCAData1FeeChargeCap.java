@@ -230,7 +230,7 @@ public class OBBCAData1FeeChargeCap   {
    **/
   @Schema(description = "Cap amount charged for a fee/charge (where it is charged in terms of an amount rather than a rate)")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeCapAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getFeeCapAmount() {
     return feeCapAmount;
   }
 

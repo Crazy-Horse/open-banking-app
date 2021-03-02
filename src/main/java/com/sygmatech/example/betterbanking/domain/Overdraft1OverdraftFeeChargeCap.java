@@ -262,7 +262,7 @@ public class Overdraft1OverdraftFeeChargeCap   {
    **/
   @Schema(description = "Cap amount charged for a fee/charge")
   
-  @Pattern(regexp="^(-?\\d{1,14}){1}(\\.\\d{1,4}){0,1}$")   public String getFeeCapAmount() {
+  @Pattern(regexp="^(-?{1,14}){1}(\\.{1,4}){0,1}$")   public String getFeeCapAmount() {
     return feeCapAmount;
   }
 
