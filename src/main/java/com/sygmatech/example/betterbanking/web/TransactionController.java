@@ -2,9 +2,9 @@ package com.sygmatech.example.betterbanking.web;
 
 import com.sygmatech.example.betterbanking.domain.Transaction;
 import com.sygmatech.example.betterbanking.service.TransactionService;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,7 +20,8 @@ public class TransactionController {
     }
 
     @GetMapping("/{accountNumber}")
-    public List<Transaction> allByAccountNumber(@PathVariable final String accountNumber) {
+    @PostFilter(value = "hasAuthority(filterObject.accountNumber)")
+    public List<Transaction> allByAccountNumber(@PathVariable final Integer accountNumber) {
         return service.findAllByAccountNumber(accountNumber);
     }
 

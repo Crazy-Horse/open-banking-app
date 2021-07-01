@@ -7,19 +7,22 @@ import com.sygmatech.example.betterbanking.dao.TransactionApiClient;
 import com.sygmatech.example.betterbanking.domain.Transaction;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
-import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 public class TransactionServiceTest {
 
     @Mock
@@ -31,36 +34,36 @@ public class TransactionServiceTest {
 
     public static MockWebServer mockBackEnd;
 
-    @BeforeAll
-    static void setUp() throws IOException {
-        mockBackEnd = new MockWebServer();
-        mockBackEnd.start();
-    }
-
-    @AfterAll
-    static void tearDown() throws IOException {
-        mockBackEnd.shutdown();
-    }
+//    @BeforeAll
+//    static void setUp() throws IOException {
+//        mockBackEnd = new MockWebServer();
+//        mockBackEnd.start();
+//    }
+//
+//    @AfterAll
+//    static void tearDown() throws IOException {
+//        mockBackEnd.shutdown();
+//    }
 
     @BeforeEach
     void setup() {
-        when(transactionApiClient.getTransactions(any())).thenReturn(List.of(new Transaction("deposit", "00023456", "USD", 30.25, "Acme")));
+        when(transactionApiClient.getTransactions(any())).thenReturn(List.of(new Transaction()));
     }
 
     @DisplayName("test TransactionService with mock TransactionApiClient")
     @Test
     public void testTransactionCount() {
-        assertEquals(1, transactionService.findAllByAccountNumber("1234567").size());
+        assertEquals(1, transactionService.findAllByAccountNumber(1234567).size());
     }
 
     @Test
     void findAllByAccountNumber() throws JsonProcessingException {
-        Transaction mockTransaction = new Transaction("deposit", "00023456", "USD", 30.25, "Acme");
+        Transaction mockTransaction = new Transaction();
         mockBackEnd.enqueue(new MockResponse()
                 .setBody(MAPPER.writeValueAsString(mockTransaction))
                 .addHeader("Content-Type", "application/json"));
 
-        List<Transaction> transactions = transactionService.findAllByAccountNumber("00023456");
+        List<Transaction> transactions = transactionService.findAllByAccountNumber(23456);
         Flux<Transaction> transactionFlux = Flux.fromIterable(transactions);
 
         StepVerifier.create(transactionFlux)

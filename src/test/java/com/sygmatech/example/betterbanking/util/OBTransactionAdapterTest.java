@@ -1,6 +1,6 @@
 package com.sygmatech.example.betterbanking.util;
 
-import com.sygmatech.example.betterbanking.domain.*;
+import com.acme.banking.model.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 

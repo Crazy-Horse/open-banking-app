@@ -22,8 +22,8 @@ public class TransactionService {
     }
 
     //@CircuitBreaker(name="transactionservice", fallbackMethod = "buildFallbackTransactionList")
-    public List<Transaction> findAllByAccountNumber(String acctNum) {
-        var transactions= transactionApiClient.getTransactions(acctNum);
+    public List<Transaction> findAllByAccountNumber(Integer acctNum) {
+        var transactions= transactionApiClient.getTransactions(String.valueOf(acctNum));
         transactions.forEach(transaction -> {
             merchantDetailsRepository.findMerchantLogo(transaction.getMerchantName()).ifPresent(logo -> {
                 transaction.setMerchantLogo(logo);

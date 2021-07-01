@@ -1,6 +1,6 @@
 package com.sygmatech.example.betterbanking.util;
 
-import com.sygmatech.example.betterbanking.domain.OBTransaction6;
+import com.acme.banking.model.OBTransaction6;
 import com.sygmatech.example.betterbanking.domain.Transaction;
 
 import java.util.Optional;
@@ -14,17 +14,20 @@ public class OBTransactionAdapter {
 
     private Function<OBTransaction6, Transaction> transactionFunction = obTransaction6 -> {
 
+        var t = new Transaction();
+        t.setAccountNumber(Integer.valueOf(obTransaction6.getAccountId()));
+
         var amount = lift(obTransaction6, o -> Double.valueOf(o.getAmount().getAmount()));
         var fx = lift(obTransaction6, o -> o.getCurrencyExchange().getExchangeRate().doubleValue());
-        var currency = lift(obTransaction6, o -> obTransaction6.getCurrencyExchange().getUnitCurrency())
-                .orElseThrow(IllegalArgumentException::new);
-        var type = lift(obTransaction6, o -> obTransaction6.getCreditDebitIndicator().toString())
-                .orElseThrow(IllegalArgumentException::new);
-        var name = lift(obTransaction6, o -> obTransaction6.getMerchantDetails().getMerchantName())
-                .orElseThrow(IllegalArgumentException::new);
+        t.setAmount(amount.orElse(0.0) * fx.orElse(1.0));
 
-        return new Transaction(type, obTransaction6.getAccountId(), currency, amount.orElse(0.0) * fx.orElse(1.0),
-                name);
+        lift(obTransaction6, o -> obTransaction6.getCurrencyExchange().getUnitCurrency())
+                .ifPresent(t::setCurrency);
+        lift(obTransaction6, o -> obTransaction6.getCreditDebitIndicator().toString())
+                .ifPresent(t::setType);
+        lift(obTransaction6, o -> obTransaction6.getMerchantDetails().getMerchantName())
+                .ifPresent(t::setMerchantName);
+        return t;
     };
 
     private <T> Optional<T> lift(final OBTransaction6 transaction6, Function<OBTransaction6, T> func) {
