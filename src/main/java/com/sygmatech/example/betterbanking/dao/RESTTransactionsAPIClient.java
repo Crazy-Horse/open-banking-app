@@ -28,7 +28,7 @@ public class RESTTransactionsAPIClient implements TransactionApiClient {
 
     @Value("${testnet.integration.client:better-banking}")
     private String clientId;
-    @Value("${testnet.integration.secret:7yrbR8XpY45bcKPP}")
+    @Value("${testnet.integration.secret}")
     private String secret;
 
     @Autowired
@@ -37,7 +37,7 @@ public class RESTTransactionsAPIClient implements TransactionApiClient {
     }
 
     @Override
-    public List<Transaction> getTransactions(String accountNumber) {
+    public List<Transaction> getTransactions(final Integer accountNumber) {
 
         OBReadTransaction6 res = null;
 

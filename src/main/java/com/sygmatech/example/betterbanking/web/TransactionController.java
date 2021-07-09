@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PostFilter;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class TransactionController {
 
     @GetMapping("/{accountNumber}")
     @PostFilter(value = "hasAuthority(filterObject.accountNumber)")
-    public List<Transaction> allByAccountNumber(@PathVariable final Integer accountNumber) {
+    public List<Transaction> findAllByAccountNumber(@PathVariable("accountNumber") final Integer accountNumber, Principal principal) {
         return service.findAllByAccountNumber(accountNumber);
     }
 

@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
@@ -21,11 +21,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService uds() {
         var uds = new InMemoryUserDetailsManager();
 
-        var u = User.withUsername("john")
-                .password(getApplicationContext().getBean("passwordEncoder", BCryptPasswordEncoder.class).encode("12345"))
-                .authorities("read")
-                .build();
+//        var u = User.withUsername("john")
+//                .password(getApplicationContext().getBean("passwordEncoder", NoOpPasswordEncoder.class).encode("12345"))
+//                .authorities("read")
+//                .build();
 
+        var u = User.withUsername("nathan")
+                .password(getApplicationContext().getBean("passwordEncoder", NoOpPasswordEncoder.class).encode("abc"))
+                .authorities("123456").build();
         uds.createUser(u);
 
         return uds;

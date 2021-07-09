@@ -5,10 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @SpringBootApplication
+@EnableCaching
 public class BetterBankingApplication {
 
     //public static final String REGISTRATION_ID = "my-client";
@@ -28,6 +30,18 @@ public class BetterBankingApplication {
                 .baseUrl(baseUrl)
                 .build();
     }
+
+//    @Bean
+//    public ReactiveRedisConnectionFactory lettuceConnectionFactory() {
+//
+//        LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
+//                .useSsl().and()
+//                .commandTimeout(Duration.ofSeconds(2))
+//                .shutdownTimeout(Duration.ZERO)
+//                .build();
+//
+//        return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
+//    }
 
 //    @Bean
 //    WebClient webClient(WebClient.Builder webClientBuilder, OAuth2AuthorizedClientManager authorizedClientManager,

@@ -38,7 +38,7 @@ public class TransactionComponentTest {
 
     private static MockWebServer server;
     TransactionApiClient apiClient = new RESTTransactionsAPIClient(WebClient.create(server.url("/").toString()));
-    TransactionService transactionService = new TransactionService(apiClient, new InMemoryMerchantDetailsRepository());
+    TransactionService transactionService = new TransactionService(apiClient, new InMemoryMerchantDetailsRepository(), bankingTransactionRepository);
 
     @BeforeAll
     static void setUp() throws IOException {
